@@ -2,7 +2,51 @@ import InputMask from 'comigo-tech-react-input-mask';
 import React from "react";
 import { Button, Container, Divider, Form, Icon } from 'semantic-ui-react';
 
-export default function FormProduto () {
+export default function FormEntregador () {
+
+    const [nome, setNome] = useState("");
+    const [cpf, setCpf] = useState("");
+    const [rg, setRg] = useState("");
+    const [dataNascimento, setDataNascimento] = useState("");
+    const [foneCelular, setFoneCelular] = useState("");
+    const [foneFixo, setFoneFixo] = useState("");
+    const [qtdEntregas, setQtdEntregas] = useState("");
+    const [valorFrete, setValorFrete] = useState("");
+    const [rua, setRua] = useState("");
+    const [numero, setNumero] = useState("");
+    const [bairro, setBairro] = useState("");
+    const [cidade, setCidade] = useState("");
+    const [cep, setCep] = useState("");
+    const [uf, setUf] = useState("");
+    const [complemento, setComplemento] = useState("");
+
+    function salvar() {
+        let entregadorRequest = {
+            nome,
+            cpf,
+            rg,
+            dataNascimento,
+            foneCelular,
+            foneFixo,
+            qtdEntregas,
+            valorFrete,
+            rua,
+            numero,
+            bairro,
+            cidade,
+            cep,
+            uf,
+            complemento
+        };
+
+        axios.post("http://localhost:8080/api/entregador", entregadorRequest)
+            .then(() => {
+                console.log('Entregador cadastrado com sucesso.')
+            })
+            .catch(() => {
+                console.log('Erro ao cadastrar o entregador.')
+            });
+    }
 
     return (
 
@@ -26,13 +70,14 @@ export default function FormProduto () {
                                     required
                                     fluid
                                     label='Nome'
+                                    width={10}
                                     maxLength="150" 
                                 />
 
                                 <Form.Input
                                     required
                                     fluid
-                                    label='CPF'>
+                                    label='CPF' width={3}>
                                     <InputMask
                                         required
                                         mask="999.999.999-99"
@@ -41,7 +86,7 @@ export default function FormProduto () {
 
                                 <Form.Input
                                     fluid
-                                    label='RG'>
+                                    label='RG' width={3}>
                                     <InputMask
                                         required
                                         mask="999.999.999-99"
@@ -55,7 +100,7 @@ export default function FormProduto () {
                                 <Form.Input
                                     fluid
                                     label='Data Nascimento'
-                                    width={6}
+                                    width={4}
                                 >
                                     <InputMask 
                                         mask="99/99/9999" 
@@ -68,7 +113,7 @@ export default function FormProduto () {
                                     required
                                     fluid
                                     label='Fone Celular'
-                                    width={15}>
+                                    width={4}>
                                     <InputMask 
                                         mask="(99) 9999.9999"
                                     /> 
@@ -78,7 +123,7 @@ export default function FormProduto () {
                                     required
                                     fluid
                                     label='Fone Fixo'
-                                    width={15}>
+                                    width={4}>
                                     <InputMask 
                                         mask="(99) 9999.9999"
                                     /> 
@@ -87,7 +132,7 @@ export default function FormProduto () {
                                 <Form.Input
                                     fluid
                                     label='QTD Entregas Realizadas'
-                                    width={7}
+                                    width={4}
                                 >
                                     <InputMask 
                                         mask="99/99/9999" 
@@ -98,7 +143,7 @@ export default function FormProduto () {
                                 <Form.Input
                                     fluid
                                     label='Valor por frete'
-                                    width={7}
+                                    width={4}
                                 >
                                     <InputMask 
                                         mask="99/99/9999" 
@@ -109,7 +154,7 @@ export default function FormProduto () {
                                 <Form.Input
                                     fluid
                                     label='Rua'
-                                    width={15}
+                                    width={6}
                                 >
                                     <InputMask 
                                         mask="99/99/9999" 
@@ -120,7 +165,7 @@ export default function FormProduto () {
                                 <Form.Input
                                     fluid
                                     label='Número'
-                                    width={15}
+                                    width={2}
                                 >
                                     <InputMask 
                                         mask="99/99/9999" 
@@ -131,7 +176,7 @@ export default function FormProduto () {
                                 <Form.Input
                                     fluid
                                     label='Bairro'
-                                    width={15}
+                                    width={4}
                                 >
                                     <InputMask 
                                         mask="99/99/9999" 
@@ -142,7 +187,7 @@ export default function FormProduto () {
                                 <Form.Input
                                     fluid
                                     label='Cidade'
-                                    width={15}
+                                    width={6}
                                 >
                                     <InputMask 
                                         mask="99/99/9999" 
@@ -153,7 +198,7 @@ export default function FormProduto () {
                                 <Form.Input
                                     fluid
                                     label='Cep'
-                                    width={15}
+                                    width={4}
                                 >
                                     <InputMask 
                                         mask="99/99/9999" 
@@ -164,7 +209,7 @@ export default function FormProduto () {
                                 <Form.Input
                                     fluid
                                     label='UF'
-                                    width={15}
+                                    width={2}
                                 >
                                     <InputMask 
                                         mask="99/99/9999" 
@@ -175,7 +220,7 @@ export default function FormProduto () {
                                 <Form.Input
                                     fluid
                                     label='Complemento'
-                                    width={15}
+                                    width={4}
                                 >
                                     <InputMask 
                                         mask="99/99/9999" 
@@ -184,6 +229,24 @@ export default function FormProduto () {
                                 </Form.Input>
 
                             </Form.Group>
+
+                            <Form.Group>
+                                <label style={{ marginRight: '10px', fontWeight: 'bold' }}>Ativo:</label>
+                                <Form.Radio
+                                    label='Sim'
+                                    name='ativo'
+                                    value="S"
+                                    checked={ativo === "S"}
+                                    onChange={() => setAtivo("S")}
+                                 />
+                             <Form.Radio
+                                label='Não'
+                                name='ativo'
+                                value="N"
+                                checked={ativo === "N"}
+                                onChange={() => setAtivo("N")}
+                             />
+                        </Form.Group>
                         
                         </Form>
                         

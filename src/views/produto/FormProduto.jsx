@@ -4,6 +4,33 @@ import { Button, Container, Divider, Form, Icon } from 'semantic-ui-react';
 
 export default function FormProduto () {
 
+    const [titulo, setTitulo] = useState('');
+    const [codigoProduto, setCodigoProduto] = useState('');
+    const [descricao, setDescricao] = useState('');
+    const [valorUnitario, setValorUnitario] = useState('');
+    const [tempoEntregaMin, setTempoEntregaMin] = useState('');
+    const [tempoEntregaMax, setTempoEntregaMax] = useState('');
+
+    function salvar() {
+
+        let produtoRequest = {
+            titulo: titulo,
+            codigoProduto: codigoProduto,
+            descricao: descricao,
+            valorUnitario: valorUnitario,
+            tempoEntregaMin: tempoEntregaMin,
+            tempoEntregaMax: tempoEntregaMax
+        };
+
+        axios.post("http://localhost:8080/api/produto", produtoRequest)
+            .then((response) => {
+                console.log('Produto cadastrado com sucesso.')
+            })
+            .catch((error) => {
+                console.log('Erro ao incluir o produto.')
+            })
+    }
+
     return (
 
         <div>
