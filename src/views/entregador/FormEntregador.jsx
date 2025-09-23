@@ -1,5 +1,8 @@
 import InputMask from 'comigo-tech-react-input-mask';
 import React from "react";
+import { useState } from 'react';
+import MenuSistema from '../../MenuSistema';
+import axios from 'axios';
 import { Button, Container, Divider, Form, Icon } from 'semantic-ui-react';
 
 export default function FormEntregador () {
@@ -19,6 +22,7 @@ export default function FormEntregador () {
     const [cep, setCep] = useState("");
     const [uf, setUf] = useState("");
     const [complemento, setComplemento] = useState("");
+    const [ativo, setAtivo] = useState("");
 
     function salvar() {
         let entregadorRequest = {
@@ -51,6 +55,8 @@ export default function FormEntregador () {
     return (
 
         <div>
+
+            <MenuSistema tela={'entregador'} />
 
             <div style={{marginTop: '3%'}}>
 

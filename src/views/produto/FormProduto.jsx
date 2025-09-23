@@ -1,5 +1,8 @@
 import InputMask from 'comigo-tech-react-input-mask';
 import React from "react";
+import { useState } from 'react';
+import MenuSistema from '../../MenuSistema';
+import axios from 'axios';
 import { Button, Container, Divider, Form, Icon } from 'semantic-ui-react';
 
 export default function FormProduto () {
@@ -34,6 +37,8 @@ export default function FormProduto () {
     return (
 
         <div>
+
+            <MenuSistema tela={'produto'} />
 
             <div style={{marginTop: '3%'}}>
 
