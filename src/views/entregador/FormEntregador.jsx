@@ -76,14 +76,14 @@ export default function FormEntregador () {
                                     required
                                     fluid
                                     label='Nome'
-                                    width={10}
                                     maxLength="150" 
+                                    width={15}
                                 />
 
                                 <Form.Input
                                     required
                                     fluid
-                                    label='CPF' width={3}>
+                                    label='CPF' width={8}>
                                     <InputMask
                                         required
                                         mask="999.999.999-99"
@@ -92,7 +92,7 @@ export default function FormEntregador () {
 
                                 <Form.Input
                                     fluid
-                                    label='RG' width={3}>
+                                    label='RG' width={8}>
                                     <InputMask
                                         required
                                         mask="999.999.999-99"
@@ -106,7 +106,7 @@ export default function FormEntregador () {
                                 <Form.Input
                                     fluid
                                     label='Data Nascimento'
-                                    width={4}
+                                    width={5}
                                 >
                                     <InputMask 
                                         mask="99/99/9999" 
@@ -119,7 +119,7 @@ export default function FormEntregador () {
                                     required
                                     fluid
                                     label='Fone Celular'
-                                    width={4}>
+                                    width={7}>
                                     <InputMask 
                                         mask="(99) 9999.9999"
                                     /> 
@@ -129,7 +129,7 @@ export default function FormEntregador () {
                                     required
                                     fluid
                                     label='Fone Fixo'
-                                    width={4}>
+                                    width={7}>
                                     <InputMask 
                                         mask="(99) 9999.9999"
                                     /> 
@@ -138,78 +138,50 @@ export default function FormEntregador () {
                                 <Form.Input
                                     fluid
                                     label='QTD Entregas Realizadas'
-                                    width={4}
+                                    width={5}
                                 >
-                                    <InputMask 
-                                        mask="99/99/9999" 
-                                        maskChar={null}
-                                    /> 
                                 </Form.Input>
 
                                 <Form.Input
                                     fluid
                                     label='Valor por frete'
-                                    width={4}
+                                    width={5}
                                 >
-                                    <InputMask 
-                                        mask="99/99/9999" 
-                                        maskChar={null}
-                                    /> 
                                 </Form.Input>
 
                                 <Form.Input
                                     fluid
                                     label='Rua'
-                                    width={6}
+                                    width={15}
                                 >
-                                    <InputMask 
-                                        mask="99/99/9999" 
-                                        maskChar={null}
-                                    /> 
                                 </Form.Input>
 
                                 <Form.Input
                                     fluid
                                     label='Número'
-                                    width={2}
+                                    width={5}
                                 >
-                                    <InputMask 
-                                        mask="99/99/9999" 
-                                        maskChar={null}
-                                    /> 
                                 </Form.Input>
 
                                 <Form.Input
                                     fluid
                                     label='Bairro'
-                                    width={4}
+                                    width={10}
                                 >
-                                    <InputMask 
-                                        mask="99/99/9999" 
-                                        maskChar={null}
-                                    /> 
                                 </Form.Input>
 
                                 <Form.Input
                                     fluid
                                     label='Cidade'
-                                    width={6}
+                                    width={10}
                                 >
-                                    <InputMask 
-                                        mask="99/99/9999" 
-                                        maskChar={null}
-                                    /> 
                                 </Form.Input>
 
                                 <Form.Input
                                     fluid
                                     label='Cep'
-                                    width={4}
+                                    width={5}
                                 >
-                                    <InputMask 
-                                        mask="99/99/9999" 
-                                        maskChar={null}
-                                    /> 
                                 </Form.Input>
 
                                 <Form.Input
@@ -226,7 +198,7 @@ export default function FormEntregador () {
                                 <Form.Input
                                     fluid
                                     label='Complemento'
-                                    width={4}
+                                    width={16}
                                 >
                                     <InputMask 
                                         mask="99/99/9999" 
