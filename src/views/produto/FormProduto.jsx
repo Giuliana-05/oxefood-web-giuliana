@@ -17,6 +17,9 @@ export default function FormProduto () {
    const [valorUnitario, setValorUnitario]=useState();
    const [tempoEntregaMin, setTempoEntregaMin]=useState();
    const [tempoEntregaMax, setTempoEntregaMax]=useState();
+   const [listaCategoria, setListaCategoria] = useState([]);
+   const [idCategoria, setIdCategoria] = useState();
+
 
    useEffect(() => {
        		if (state != null && state.id != null) {
@@ -29,14 +32,24 @@ export default function FormProduto () {
                	    	       setValorUnitario(response.data.valorUnitario)
                	    	       setTempoEntregaMin(response.data.tempoEntregaMin)
                                setTempoEntregaMax(response.data.tempoEntregaMax)
+                               setIdCategoria(response.data.categoria.id)
+
            		})
        		}
+
+             axios.get("http://localhost:8080/api/categoriaproduto")
+       .then((response) => {
+           const dropDownCategorias = response.data.map(c => ({ text: c.descricao, value: c.id }));
+           setListaCategoria(dropDownCategorias);
+       })
+
    	}, [state])
 
 
 function salvar() {
 
 		let produtoRequest = {
+            idCategoria: idCategoria,
 		     titulo,
 		     codigoProduto,
              descricao,
@@ -82,6 +95,20 @@ function salvar() {
 
                             <Form.Group widths='equal'>
 
+                                <Form.Select
+                                    required
+                                    fluid
+                                    tabIndex='3'
+                                    placeholder='Selecione'
+                                    label='Categoria'
+                                    options={listaCategoria}
+                                    value={idCategoria}
+                                    onChange={(e,{value}) => {
+                                        setIdCategoria(value)
+                                    }}
+                                />
+
+
                                 <Form.Input
                                     required
                                     fluid
@@ -101,6 +128,8 @@ function salvar() {
 			                        onChange={e => setCodigoProduto(e.target.value)}>
                                    
                                 </Form.Input>
+
+
 
                             </Form.Group>
 

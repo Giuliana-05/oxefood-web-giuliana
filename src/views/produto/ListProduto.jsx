@@ -73,6 +73,7 @@ export default function ListProduto () {
            
                            <Table.Header>
                                <Table.Row>
+                                   <Table.HeaderCell>Categoria</Table.HeaderCell>
                                    <Table.HeaderCell>Título</Table.HeaderCell>
                                    <Table.HeaderCell>Código do produto</Table.HeaderCell>
                                    <Table.HeaderCell>Descrição</Table.HeaderCell>
@@ -88,6 +89,7 @@ export default function ListProduto () {
                                { lista.map(produto => (
 
                                    <Table.Row key={produto.id}>
+                                       <Table.Cell>{p.categoria.descricao}</Table.Cell>
                                        <Table.Cell>{produto.titulo}</Table.Cell>
                                        <Table.Cell>{produto.codigoProduto}</Table.Cell>
                                        <Table.Cell>{produto.descricao}</Table.Cell>
