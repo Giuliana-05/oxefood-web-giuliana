@@ -49,14 +49,14 @@ export default function FormEnderecoCliente () {
              complemento: complemento
         }
     
-         if (idCliente != null) { //Alteração:
+         if (idEnderecoCliente != null) { //Alteração:
            axios.put("http://localhost:8080/api/cliente/endereco" + idEnderecoCliente, enderecoClienteRequest)
-           .then((response) => { console.log('Cliente alterado com sucesso.') })
-           .catch((error) => { console.log('Erro ao alter um cliente.') })
+           .then((response) => { console.log('Endereço alterado com sucesso.') })
+           .catch((error) => { console.log('Erro ao alterar um endereço.') })
            } else { //Cadastro:
-           axios.post("http://localhost:8080/api/cliente/endereco", clienteRequest)
-           .then((response) => { console.log('Cliente cadastrado com sucesso.') })
-           .catch((error) => { console.log('Erro ao incluir o cliente.') })
+           axios.post("http://localhost:8080/api/cliente/endereco", enderecoClienteRequest)
+           .then((response) => { console.log('Endereço alterado com sucesso.') })
+           .catch((error) => { console.log('Erro ao alterar endereço do cliente.') })
        }
 
     }
@@ -72,14 +72,9 @@ export default function FormEnderecoCliente () {
 
                 <Container textAlign='justified' >
 
-{ idCliente === undefined &&
-    <h2> <span style={{color: 'darkgray'}}> Cliente &nbsp;<Icon name='angle double right' size="small" /> </span> Cadastro</h2>
-            }
 { idCliente != undefined &&
     <h2> <span style={{color: 'darkgray'}}>Endereco Cliente &nbsp;<Icon name='angle double right' size="small" /> </span> Alteração</h2>
 }
-
-
 
                     <Divider />
 
@@ -185,26 +180,12 @@ export default function FormEnderecoCliente () {
                                 circular
                                 icon
                                 labelPosition='left'
-                                color='orange'
+                                color='pink'
                             >
                                 <Icon name='reply' />
-                                Voltar
+                                Salvar Alteração
                             </Button>
                             </Link>
-
-                                
-                            <Button
-                                inverted
-                                circular
-                                icon
-                                labelPosition='left'
-                                color='blue'
-                                floated='right'
-                                onClick={() => salvar()}
-                            >
-                                <Icon name='save' />
-                                Salvar
-                            </Button>
 
                         </div>
 
