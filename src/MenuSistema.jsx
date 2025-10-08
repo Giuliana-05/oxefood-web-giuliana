@@ -41,6 +41,13 @@ export default function MenuSistema (props) {
                    to='/enderecoCliente'
                />
 
+                  <Menu.Item
+                   content='Cidade'
+                   active={props.tela === 'cidade'}
+                   as={Link}
+                   to='/form-cidade'
+               />
+
            </Menu>
        </>
    )
