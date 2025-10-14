@@ -17,8 +17,10 @@ function Rotas() {
                 <Route path="list-cliente" element={ <ListCliente/> } />
                 <Route path="list-entregador" element={ <ListEntregador/> } />
                 <Route path="list-produto" element={ <ListProduto/> } />
+                <Route path="list-cidade" element={ <ListCidade/> } />
                 <Route path="form-cliente" element={ <FormCliente/> } />
                 <Route path="form-produto" element={ <FormProduto/> } />
+                <Route path="form-cidade" element={ <FormCidade/> } />
                 <Route path="form-entregador" element={ <FormEntregador/> } />
             </Routes>
         </>
