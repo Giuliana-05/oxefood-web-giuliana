@@ -7,6 +7,8 @@ import FormEntregador from './views/entregador/FormEntregador';
 import Home from './views/home/Home';
 import FormProduto from './views/produto/FormProduto';
 import ListProduto from './views/produto/ListProduto';
+import ListCidade from './views/produto/ListCidade';
+import FormCidade from './views/produto/FormCidade';
 import ListEntregador from './views/entregador/ListEntregador';
 
 function Rotas() {

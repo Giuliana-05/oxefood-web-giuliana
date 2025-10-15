@@ -52,8 +52,8 @@ export default function FormCliente () {
 		     foneCelular: foneCelular,
 		     foneFixo: foneFixo
 		}
-   }
-		 if (idCliente != null) { //Alteração:
+
+         if (idCliente != null) { //Alteração:
            axios.put("http://localhost:8080/api/cliente/" + idCliente, clienteRequest)
            .then((response) => { 
             notifySuccess('Cliente cadastrado com sucesso.')
@@ -66,8 +66,10 @@ export default function FormCliente () {
 	} else {
 		notifyError(error.response.data.message)
 	}
-	
-
+ })
+         }
+   }
+		
 
     return (
 
@@ -85,8 +87,6 @@ export default function FormCliente () {
 { idCliente != undefined &&
     <h2> <span style={{color: 'darkgray'}}> Cliente &nbsp;<Icon name='angle double right' size="small" /> </span> Alteração</h2>
 }
-
-
 
                     <Divider />
 

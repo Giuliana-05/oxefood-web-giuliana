@@ -1,4 +1,4 @@
-import InputMask from 'comigo-tech-react-input-mask';
+
 import { Button, Container, Divider, Form, Icon } from 'semantic-ui-react';
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
