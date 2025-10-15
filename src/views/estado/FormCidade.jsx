@@ -8,7 +8,7 @@ import axios from 'axios';
 export default function FormCidade () {
 
     const { state } = useLocation();
-    const [idEntregador, setIdEntregador] = useState();
+    const [idCidade, setIdCidade] = useState();
 
    const [nome, setNome]=useState();
    const [estado, setEstado]=useState();
@@ -26,7 +26,7 @@ export default function FormCidade () {
                                    setNome(response.data.nome)
                                    setEstado(response.data.estado)
                                    setQtdPopulacao(response.data.qtdPopulacao)
-                                   setCidade(response.data.cidade)
+                                   setIdCidade(response.data.cidade)
                                    setEhCapital(response.data.ehCapital)
                                    setDataFundacao(response.data.dataFundacao)
                     })
@@ -52,7 +52,7 @@ function salvar() {
              qtdPopulacao,
              dataFundacao,
              ehCapital,
-             cidade
+             idCidade
         };
     
         if (idCidade != null) { 
@@ -77,7 +77,7 @@ function salvar() {
 
                     <h2> <span style={{color: 'darkgray'}}> Cidade &nbsp;<Icon name='angle double right' size="small" /> </span> Cadastro</h2>
                             
-                    { idEntregador != undefined &&
+                    { idCidade != undefined &&
                         <h2> <span style={{color: 'darkgray'}}> Cidade &nbsp;<Icon name='angle double right' size="small" /> </span> Alteração</h2>
                     }
                     
@@ -105,10 +105,9 @@ function salvar() {
                                     fluid
                                     label='QtdPopulacao'
                                     width={8}>
-                                    <InputMask
-                                        value={qtdPopulacao}
-                                        onChange={e => setQtdPopulacao(e.target.value)}
-                                    /> 
+                                    value={qtdPopulacao}
+                                    onChange={e => setQtdPopulacao(e.target.value)}
+                                    
                                 </Form.Input>
                             </Form.Group>
                             
@@ -133,8 +132,8 @@ function salvar() {
                                         fluid
                                         label='Cidade'
                                         width={10}
-                                        value={cidade}
-                                        onChange={e => setCidade(e.target.value)}
+                                        value={idCidade}
+                                        onChange={e => setIdCidade(e.target.value)}
                                         >
                                         
                                     </Form.Input>

@@ -1,4 +1,4 @@
-import InputMask from 'comigo-tech-react-input-mask';
+
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation  } from "react-router-dom";
@@ -8,7 +8,7 @@ import { Button, Container, Divider, Form, Icon } from 'semantic-ui-react';
 export default function FormEnderecoCliente () {
 
     const { state } = useLocation();
-    const [idCliente, setIdCliente] = useState();
+    const [idEnderecoCliente, setIdEnderecoCliente] = useState();
 
 
    const [rua, setRua] = useState();
@@ -24,7 +24,7 @@ export default function FormEnderecoCliente () {
             if (state != null && state.id != null) {
                 axios.get("http://localhost:8080/api/cliente/endereco" + state.id)
                 .then((response) => {
-                               setIdEnderocoCliente(response.data.id)
+                               setIdEnderecoCliente(response.data.id)
                                setRua(response.data.rua)
                                setCep(response.data.cep)
                                setNumero(response.data.numero)
@@ -39,7 +39,7 @@ export default function FormEnderecoCliente () {
 
    function salvar() {
 
-        let clienteRequest = {
+        let enderecoClienteRequest = {
              rua: rua,
              cep: cep,
              numero: numero,
@@ -72,7 +72,7 @@ export default function FormEnderecoCliente () {
 
                 <Container textAlign='justified' >
 
-{ idCliente != undefined &&
+{ idEnderecoCliente != undefined &&
     <h2> <span style={{color: 'darkgray'}}>Endereco Cliente &nbsp;<Icon name='angle double right' size="small" /> </span> Alteração</h2>
 }
 
@@ -98,12 +98,9 @@ export default function FormEnderecoCliente () {
                                     required
                                     fluid
                                     label='Cep'>
-                                    <InputMask
-                                        required
-                                        value={cep}
-                                        onChange={e => setCep(e.target.value)}
-
-                                    /> 
+                                    required
+                                    value={cep}
+                                    onChange={e => setCep(e.target.value)}
                                 </Form.Input>
 
                             </Form.Group>
@@ -114,55 +111,43 @@ export default function FormEnderecoCliente () {
                                     fluid
                                     label='Cidade'
                                     width={6}>
-                                    <InputMask 
-                                        value={cidade}
-                                        onChange={e => setCidade(e.target.value)}
-
-                                    /> 
+                                    value={cidade}
+                                    onChange={e => setCidade(e.target.value)}
                                 </Form.Input>
 
                                 <Form.Input
                                     fluid
                                     label='Bairro'
                                     width={6}>
-                                    <InputMask 
-                                        value={bairro}
-                                        onChange={e => setBairro(e.target.value)}
-
-                                    /> 
+                                    value={bairro}
+                                    onChange={e => setBairro(e.target.value)}
                                 </Form.Input>
 
                                    <Form.Input
                                     fluid
                                     label='Numero'
                                     width={6}>
-                                    <InputMask 
-                                        value={numero}
-                                        onChange={e => setNumero(e.target.value)}
-
-                                    /> 
+                                    value={numero}
+                                    onChange={e => setNumero(e.target.value)}
                                 </Form.Input>
 
                                    <Form.Input
                                     fluid
                                     label='Estado'
                                     width={6}>
-                                    <InputMask 
-                                        value={estado}
-                                        onChange={e => setEstado(e.target.value)}
+                                    value={estado}
+                                    onChange={e => setEstado(e.target.value)}
 
-                                    /> 
+                                 
                                 </Form.Input>
 
                                    <Form.Input
                                     fluid
                                     label='Complemento'
-                                    width={6}>
-                                    <InputMask 
-                                        value={complemento}
-                                        onChange={e => setComplemento(e.target.value)}
+                                    width={6}> 
+                                    value={complemento}
+                                    onChange={e => setComplemento(e.target.value)}
 
-                                    /> 
                                 </Form.Input>
 
 

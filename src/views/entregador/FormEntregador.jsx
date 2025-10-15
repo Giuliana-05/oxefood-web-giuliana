@@ -172,9 +172,14 @@ function salvar() {
                                     fluid
                                     label='DT nascimento'
                                     width={5}
-                                    placeholder="Ex: 20/03/1985"
-                                    value={dataNascimento}
-				                    onChange={e => setDataNascimento(e.target.value)}>
+                                   >
+                                     <InputMask 
+                                        mask="99/99/9999" 
+                                        maskChar={null}
+                                        placeholder="Ex: 20/03/1985"
+                                        value={dataNascimento}
+                                        onChange={e => setDataNascimento(e.target.value)}
+                                             /> 
                                     
                                 </Form.Input>
 
